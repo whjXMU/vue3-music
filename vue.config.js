@@ -1,3 +1,6 @@
+const registerRouter = require('./backend/router')
+const app = require('express')();
+
 module.exports = {
   css: {
     loaderOptions:{
@@ -9,7 +12,12 @@ module.exports = {
       }
     }
   },
-  lintOnSave:false
+  lintOnSave:false,
+  devServer: {
+    onBeforeSetupMiddleware(devserver) {
+      registerRouter(devserver.app)
+    }
+  }
 }
 // const { defineConfig } = require('@vue/cli-service')
 // module.exports = defineConfig({
