@@ -7,7 +7,6 @@ export default function useScroll(wrapperRef, options){
     const scroll = ref(null)
 
     onMounted(()=> {
-        // debugger
         scroll.value = new BScroll(wrapperRef.value, {
             observeDOM: true,
             ...options
